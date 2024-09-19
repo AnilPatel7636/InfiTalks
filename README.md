@@ -1,4 +1,11 @@
-<<<<<<< HEAD
+## About Me:
+
+Name: Anil Patel  
+University: Indian Institute of Technology Goa  
+Department: Computer Science and Engineering  
+Email: anil.patel.22031@iitgoa.ac.in  
+
+
 # InfiTalks Messaging Application
 
 InfiTalks is a web-based real-time messaging platform where users can send messages, including images, either one-on-one or in groups. The platform also supports user registration, authentication, group chat functionalities, and a video calling feature (currently under development).
@@ -23,6 +30,9 @@ InfiTalks is a web-based real-time messaging platform where users can send messa
 | Image Management     | Cloudinary                    | Cloud-based image storage with fast access and processing.   |
 | Authentication       | NextAuth                      | Secure user authentication with support for sessions.        |
 | Password Encryption  | bcryptjs                      | Secure password hashing for user credentials.                |
+
+- Javascript and its library JSX is used as it provides readability and performance.
+- For backend Node.js is used as it provides scalability, stability and synchronization.
 
 ## Database Design
 
@@ -49,20 +59,30 @@ MongoDB Atlas is used with three collections in the **InfiTalks** database:
 | `react-hot-toast`       | ^2.4.1      | For notifications and alerts in the app.                                         |
 | `tailwindcss`           | ^3.4.11     | Utility-first CSS framework for fast UI design.                                  |
 
-## Setup Instructions
+## Setup Instructions (on local machine)
 
 ### 1. Clone the Repository
+
 ```bash
 git clone https://github.com/yourusername/infitalks.git
 cd infitalks
+```
 
 ### 2. Install Dependencies
 - Install all required libraries by running:
+
 ```bash
 npm install @emotion/react @mui/icons-material bcryptjs mongodb mongoose next-auth next-cloudinary pusher pusher-js react-hook-form react-hot-toast tailwindcss
+```
 
 ### 3. Environment Variables
 - Set up environment variables by creating a .env file in the project root with the following:
+- Please note that NEXTAUTH_SECRET can be any 32 bit random number in hexadecimal, you can generate it by running below command in vscode/linux/git terminal:
+
+```bash
+openssl rand -hex 32
+```
+- your .env file looke as follows:
 ```bash
 MONGODB_URL=your_mondoDB_atlas_url
 NEXTAUTH_SECRET=your_secret_key
@@ -71,60 +91,62 @@ NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=your_cloudinary_name
 NEXT_PUBLIC_PUSHER_APP_KEY=your_pusher_app_key
 PUSHER_APP_ID=your_pusher_app_id
 PUSHER_SECRET=your_pusher_secret
+```
 
 ### 4. MongoDB Setup
 
 Step 1: Sign Up or Log In to MongoDB Atlas
 
-* Visit MongoDB Atlas
-* Sign up for a free account if you don't have one, or log in if you already have an account
+- Visit MongoDB Atlas
+- Sign up for a free account if you don't have one, or log in if you already have an account
 
 Step 2: Create a New Cluster
 
-* Click on "Build a Cluster" or "Create a New Cluster"
-* Choose a cloud provider (e.g., AWS, Azure, GCP), region, and cluster tier
-* Select the free tier for free usage
-* Click "Create Cluster"
+- Click on "Build a Cluster" or "Create a New Cluster"
+- Choose a cloud provider (e.g., AWS, Azure, GCP), region, and cluster tier
+- Select the free tier for free usage
+- Click "Create Cluster"
 
 Step 3: Set Up Cluster Security
 
--Whitelist Your IP Address
+- Go to "Network Access" from the sidebar
+- Click "Add IP Address" and enter your IP or allow access from anywhere (0.0.0.0/0) for development purposes
+  
+Step 4: Create a Database User
 
-* Go to "Network Access" from the sidebar
-* Click "Add IP Address" and enter your IP or allow access from anywhere (0.0.0.0/0) for development purposes
+- Go to "Database Access" from the sidebar
+- Click "Add New Database User"
+- Create a username and password
+- Set the user permissions to "Atlas Admin" (for full access)
+- Click "Add User"
 
-- Create a Database User
+Step 5: Get Your Connection String (MONGODB_URL)
 
-* Go to "Database Access" from the sidebar
-* Click "Add New Database User"
-* Create a username and password
-* Set the user permissions to "Atlas Admin" (for full access)
-* Click "Add User"
-
-Step 4: Get Your Connection String (MONGODB_URL)
-
-* After the cluster is set up, go to the "Clusters" section and click "Connect" next to your cluster
-* In the "Connect to your Cluster" window:
+- After the cluster is set up, go to the "Clusters" section and click "Connect" next to your cluster
+- In the "Connect to your Cluster" window:
 	+ Choose "Connect your application"
 	+ Select your driver (e.g., Node.js) and the version
 	+ You’ll see a connection string in the following format(may vary slightly):
 
 ```bash
 mongodb+srv://<username>:<password>@cluster.mongodb.net/<dbname>?retryWrites=true&w=majority
+```
 
-* Add that url in .env file in your project at your_mondoDB_atlas_url & make sure that you replace <username> and <password> with yours.
+- Add that url in .env file in your project at your_mondoDB_atlas_url & make sure that you replace username and password with the credentials you set in step 4.
 
 
 
-### 4. Pusher Setup
+### 5. Pusher Setup
 
 - Follow these steps to obtain the Pusher credentials (app ID, key, secret, and cluster) required to use Pusher in your project.
 
 Step 1: Sign Up or Log In to Pusher (Pusher channel, not pusher beams)
+
 - Visit [Pusher](https://pusher.com/).
 - If you don’t have an account, sign up for a free one. If you already have an account, log in.
 
 Step 2: Create a New App
+
 1. After logging in, go to your **Pusher Dashboard**.
 2. Click on **"Create New App"**.
 3. In the **"Create New App"** window:
@@ -134,6 +156,7 @@ Step 2: Create a New App
    - Click **"Create App"**.
 
 Step 3: View Your App Credentials
+
 -Once your app is created, Pusher will display the following credentials:
 
 - **App ID**: A unique identifier for your Pusher app.
@@ -142,13 +165,17 @@ Step 3: View Your App Credentials
 - **Cluster**: The region-specific server cluster your app is hosted on.
 
 ### Example of Credentials:
+
 ```bash
 App ID: 123456
 Key: abcd1234efgh5678
 Secret: zxy98765vwxyz4321
 Cluster: us2
+```
 
-- put those credentials in your .env file as in above example.
+- Put those credentials in your .env file as in above example.
+- Also note that in this project I used Cluster name directly in pusher.js file (inside lib folder), so you have to explicitly change the cluster name there in that file.
+- Then you do not need the cluster name in .env file.
 
 
 
@@ -156,9 +183,11 @@ Cluster: us2
 ### 5. Start the Application
 - To run the development server:
 ```bash
-npm run dev 
+npm run dev
+```
 
 - The app will be available at http://localhost:3000
+- If you will get any error in app, then you may try refreshing your browser.
 
 
 # Usage
@@ -175,8 +204,9 @@ npm run dev
 ### Group Chat
 - Create group chats by selecting multiple contacts and assigning a group name.
 
-### Profile
-- Update profile pictures via [Cloudinary](https://cloudinary.com/).
+### Pictures
+- Users can set profile picture.
+- Users can share pictures via [Cloudinary](https://cloudinary.com/).
 
 ### Real-Time Messaging
 - Messages are delivered in real-time using [Pusher](https://pusher.com/).
@@ -186,10 +216,7 @@ npm run dev
 
 # Future Development
 
-### Video Calling
-- Full implementation of the video calling feature is planned.
-
-### Improved UI
+- Full implementation of the calling feature is planned.
 - Further enhancements to improve the user interface and user experience.
 
 # Contribution
@@ -206,11 +233,3 @@ Feel free to contribute to this project by submitting a pull request. Follow the
 # License
 
 This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
-
-
-
-
-
-=======
-# InfiTalks
->>>>>>> origin/main
