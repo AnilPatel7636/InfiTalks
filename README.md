@@ -11,6 +11,11 @@ Email: anil.patel.22031@iitgoa.ac.in
 
 InfiTalks is a web-based real-time messaging platform where users can send messages, including images, either one-on-one or in groups. The platform also supports user registration, authentication, group chat functionalities, and a video calling feature (currently under development).
 
+## Deployment
+- I used [Vercel](https://vercel.com) to deploy the app.
+- You can test and use the app by clicking the link: [InfiTalks](https://infitalks.vercel.app).
+- If you'd like to set up the app locally, follow the instructions provided below in this file.
+
 ## Features
 
 - User registration and authentication.
