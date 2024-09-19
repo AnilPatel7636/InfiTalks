@@ -79,6 +79,8 @@ npm install @emotion/react @mui/icons-material bcryptjs mongodb mongoose next-au
 
 ### 3. Environment Variables
 - Set up environment variables by creating a .env file in the project root with the following:
+- You have to create an account on Cloudinary to get NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME, then you can replace your_cloudinary_name with your name on cloudinary.
+- Cloudinary name will looks like something "dnrllthpq"(example)
 - Please note that NEXTAUTH_SECRET can be any 32 bit random number in hexadecimal, you can generate it by running below command in vscode/linux/git terminal:
 
 ```bash
