@@ -1,9 +1,10 @@
 ## About Me:
 
-Name: Anil Patel  
-University: Indian Institute of Technology Goa  
-Department: Computer Science and Engineering  
+Name: **Anil Patel**  
+University: **Indian Institute of Technology Goa**   
+Department: **Computer Science and Engineering**  
 Email: anil.patel.22031@iitgoa.ac.in  
+
 
 
 # InfiTalks Messaging Application
@@ -32,6 +33,7 @@ InfiTalks is a web-based real-time messaging platform where users can send messa
 | Password Encryption  | bcryptjs                      | Secure password hashing for user credentials.                |
 
 - Javascript and its library JSX is used as it provides readability and performance.
+- Tailwind css is used for better UI as it provides responsiveness, reusability and scalability.
 - For backend Node.js is used as it provides scalability, stability and synchronization.
 
 ## Database Design
@@ -174,8 +176,8 @@ Cluster: us2
 ```
 
 - Put those credentials in your .env file as in above example.
-- Also note that in this project I used Cluster name directly in pusher.js file (inside lib folder), so you have to explicitly change the cluster name there in that file.
-- Then you do not need the cluster name in .env file.
+- **Also note that in this project I used Cluster name directly in pusher.js file (inside lib folder), so you have to explicitly change the cluster name there in that file.**
+- **Then you do not need the cluster name in .env file.**
 
 
 
@@ -187,7 +189,7 @@ npm run dev
 ```
 
 - The app will be available at http://localhost:3000
-- If you will get any error in app, then you may try refreshing your browser.
+- **If you will get any error in app, then you may try refreshing your browser.**
 
 
 # Usage
@@ -213,6 +215,11 @@ npm run dev
 
 ### Video Calling (Under Development)
 - A basic video calling feature is under development.
+
+
+# Important:
+- **I have used the free/trial version of pusher, mongoDB atlas and cloudinary, so when they reach their usage limit some functions may not work.**
+- **So, to make it scalable for large number of users on the app, we need to buy subscription of the required platforms accordingly.**
 
 # Future Development
 
